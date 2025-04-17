@@ -101,7 +101,7 @@ export default function Home() {
                 />
               </div>
               <p className="text-gray-300">
-                After a rejuvenating sauna session, we often come together for a well-deserved afterwork beer and chill. It's the perfect time to continue those meaningful discussions or simply relax in good company. We also explore various sauna infusions, enhancing the health benefits of the experience and deepening our appreciation for holistic wellness.
+                After a rejuvenating sauna session, we often come together for a well-deserved afterwork beer and chill. It&apos;s the perfect time to continue those meaningful discussions or simply relax in good company. We also explore various sauna infusions, enhancing the health benefits of the experience and deepening our appreciation for holistic wellness.
               </p>
             </CardContent>
           </Card>
@@ -120,7 +120,7 @@ export default function Home() {
                 />
               </div>
               <p className="text-gray-300">
-                Join the "Munich Tech Sauna" community to escape the digital hustle and nurture your well-being in a friendly setting. Connect with us on <a href="https://discord.gg/yTVEfyS7WB" className="text-pink-500 hover:text-pink-400">Discord</a> for real-time conversations, or join our <a href="https://www.reddit.com/r/munichtechsauna/" className="text-pink-500 hover:text-pink-400">Reddit</a> community to stay informed. Whether you're a tech professional or just curious about the intersection of tech and wellness, you'll find a welcoming space here.
+                Join the &quot;Munich Tech Sauna&quot; community to escape the digital hustle and nurture your well-being in a friendly setting. Connect with us on <a href="https://discord.gg/yTVEfyS7WB" className="text-pink-500 hover:text-pink-400">Discord</a> for real-time conversations, or join our <a href="https://www.reddit.com/r/munichtechsauna/" className="text-pink-500 hover:text-pink-400">Reddit</a> community to stay informed. Whether you&apos;re a tech professional or just curious about the intersection of tech and wellness, you&apos;ll find a welcoming space here.
               </p>
             </CardContent>
           </Card>
