@@ -9,11 +9,30 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [api, setApi] = useState<any>(null);
+  const quotes = [
+    {
+      text: "I love the Munich Tech Sauna because it cuts through the hype and lets us have genuine, insightful discussions about the tech we're passionate about.",
+      author: "Sven Haiges",
+      role: "Tech Strategist at SAP"
+    },
+    {
+      text: "I've never felt more connected to the tech community. The sauna sessions create an atmosphere of openness and trust.",
+      author: "Michael K.",
+      role: "Product Manager"
+    },
+    {
+      text: "A refreshing break from the digital world. The conversations flow naturally, and the sauna helps us all unwind together.",
+      author: "Lisa T.",
+      role: "UX Designer"
+    }
+  ];
+
+  const [api, setApi] = useState<CarouselApi | null>(null);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -32,25 +51,7 @@ export default function Home() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [api, current]);
-
-  const quotes = [
-    {
-      text: "I love the Munich Tech Sauna because it cuts through the hype and lets us have genuine, insightful discussions about the tech we're passionate about.",
-      author: "Sven Haiges",
-      role: "Tech Strategist at SAP"
-    },
-    {
-      text: "I've never felt more connected to the tech community. The sauna sessions create an atmosphere of openness and trust.",
-      author: "Michael K.",
-      role: "Product Manager"
-    },
-    {
-      text: "A refreshing break from the digital world. The conversations flow naturally, and the sauna helps us all unwind together.",
-      author: "Lisa T.",
-      role: "UX Designer"
-    }
-  ];
+  }, [api, current, quotes.length]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white">
