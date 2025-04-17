@@ -3,13 +3,10 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState } from "react";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white">
       <Nav />
