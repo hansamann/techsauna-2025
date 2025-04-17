@@ -5,8 +5,53 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [api, setApi] = useState<any>(null);
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      if (current === quotes.length - 1) {
+        api.scrollTo(0);
+        setCurrent(0);
+      } else {
+        api.scrollNext();
+        setCurrent(prev => prev + 1);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [api, current]);
+
+  const quotes = [
+    {
+      text: "I love the Munich Tech Sauna because it cuts through the hype and lets us have genuine, insightful discussions about the tech we're passionate about.",
+      author: "Sven Haiges",
+      role: "Tech Strategist at SAP"
+    },
+    {
+      text: "I've never felt more connected to the tech community. The sauna sessions create an atmosphere of openness and trust.",
+      author: "Michael K.",
+      role: "Product Manager"
+    },
+    {
+      text: "A refreshing break from the digital world. The conversations flow naturally, and the sauna helps us all unwind together.",
+      author: "Lisa T.",
+      role: "UX Designer"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white">
       <Nav />
@@ -39,6 +84,30 @@ export default function Home() {
               priority
             />
           </div>
+        </div>
+      </section>
+
+      {/* Quotes Carousel */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-12">What Our Community Says</h2>
+        <div className="w-full">
+          <Carousel setApi={setApi} className="w-full">
+            <CarouselContent>
+              {quotes.map((quote, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-6 bg-gray-900 rounded-lg border border-gray-800">
+                    <blockquote className="text-xl italic text-gray-300 mb-4">
+                      &ldquo;{quote.text}&rdquo;
+                    </blockquote>
+                    <div className="text-right">
+                      <p className="text-pink-500 font-semibold">{quote.author}</p>
+                      <p className="text-gray-400 text-sm">{quote.role}</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 
